@@ -23,7 +23,14 @@ def main() -> None:
     ask.add_argument("query")
     ev = sub.add_parser("eval")
     ev.add_argument("--no-llm-judge", action="store_true")
+    sub.add_parser("mcp-server")
     args = parser.parse_args()
+
+    if args.command == "mcp-server":
+        from .mcp_server import main as run_mcp_server
+
+        run_mcp_server()
+        return
 
     if args.command == "build-index":
         rag = RagLayer(Path("docs/handbook"), Path("data/index/chunks.json"))

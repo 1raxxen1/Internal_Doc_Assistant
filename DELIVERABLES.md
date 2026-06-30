@@ -24,7 +24,13 @@ The generated index is written to `data/index/chunks.json`. It is ignored by git
 
 ## 3. MCP server or Agent Skill
 
-Not implemented in this version. The fallback is plain in-process Python tools on `InternalDocsAgent`, which is the minimum acceptable fallback from the deliverables list.
+Implemented as a FastMCP stdio MCP server provider in `internal_docs_assistant/mcp_server.py`. Run it with:
+
+```bash
+python -m internal_docs_assistant mcp-server
+```
+
+The provider exposes `retrieve_handbook_answer`, `file_internal_ticket`, and `lookup_glossary_term` tools backed by the same in-process `InternalDocsAgent` methods.
 
 ## 4. Evaluation harness
 
