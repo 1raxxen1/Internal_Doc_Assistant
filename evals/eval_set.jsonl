@@ -1,0 +1,21 @@
+{"question":"What approvals are needed for production access?","answer_contains":"manager approval","source":"docs/handbook/access.md"}
+{"question":"What must a production access ticket include?","answer_contains":"business justification","source":"docs/handbook/access.md"}
+{"question":"How long does sandbox access last?","answer_contains":"fourteen days","source":"docs/handbook/access.md"}
+{"question":"When should lost devices be reported?","answer_contains":"within one hour","source":"docs/handbook/access.md"}
+{"question":"What happens on day one?","answer_contains":"HR paperwork","source":"docs/handbook/onboarding.md"}
+{"question":"When should the buddy meeting happen?","answer_contains":"first two business days","source":"docs/handbook/onboarding.md"}
+{"question":"What should engineers do by end of week one?","answer_contains":"local development stack","source":"docs/handbook/onboarding.md"}
+{"question":"What laptop security controls are standard?","answer_contains":"disk encryption","source":"docs/handbook/onboarding.md"}
+{"question":"What is a Severity 1 incident?","answer_contains":"customer-impacting outages","source":"docs/handbook/incidents.md"}
+{"question":"Who is paged for Severity 1?","answer_contains":"incident commander","source":"docs/handbook/incidents.md"}
+{"question":"What is a Severity 2 incident?","answer_contains":"workaround","source":"docs/handbook/incidents.md"}
+{"question":"When are postmortems due?","answer_contains":"five business days","source":"docs/handbook/incidents.md"}
+{"question":"What must postmortems list?","answer_contains":"root cause","source":"docs/handbook/incidents.md"}
+{"question":"Define MCP.","answer_contains":"Model Context Protocol","source":"docs/handbook/glossary.md"}
+{"question":"Define RAG.","answer_contains":"Retrieval-augmented generation","source":"docs/handbook/glossary.md"}
+{"question":"Define SLO.","answer_contains":"reliability target","source":"docs/handbook/glossary.md"}
+{"question":"Define DPA.","answer_contains":"Data processing agreement","source":"docs/handbook/glossary.md"}
+{"question":"When are expense reports due?","answer_contains":"thirty days","source":"docs/handbook/expenses.md"}
+{"question":"When are receipts required?","answer_contains":"over 25 USD","source":"docs/handbook/expenses.md"}
+{"question":"What approval is needed for conference travel?","answer_contains":"manager approval","source":"docs/handbook/expenses.md"}
+{"question":"What extra review is needed for international travel involving customer data?","answer_contains":"Legal review","source":"docs/handbook/expenses.md"}
