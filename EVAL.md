@@ -43,7 +43,6 @@ The fallback answer now keeps a larger safe context window and filters out the h
 
 ## Known limitations
 
-- The included local fallback is for development and grading only; production-quality answers require `GEMINI_API_KEY`.
+- The included local fallback is for development and grading only; production-quality answers require `GEMINI_API_KEY` or `OPENROUTER_API_KEY`.
 - The vector store is a simple JSON file and in-process scoring, not a managed database.
-- The MCP / Agent Skill deliverable is not implemented; tools are exposed as plain in-process Python methods, which is the minimum acceptable fallback.
 - The demo deliverable is documented as a runbook in `README.md`, but no screen recording file is committed.

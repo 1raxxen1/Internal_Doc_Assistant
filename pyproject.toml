@@ -7,10 +7,11 @@ name = "internal-docs-assistant"
 version = "0.1.0"
 description = "Agentic RAG internal docs assistant with eval harness"
 requires-python = ">=3.10"
-dependencies = ["google-genai>=1.0"]
+dependencies = ["google-genai>=1.0", "mcp>=1.27,<2"]
 
 [project.scripts]
 internal-docs-assistant = "internal_docs_assistant.__main__:main"
+internal-docs-mcp = "internal_docs_assistant.mcp_server:main"
 
 [tool.setuptools.packages.find]
 include = ["internal_docs_assistant*"]
