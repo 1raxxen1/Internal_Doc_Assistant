@@ -51,7 +51,7 @@ class RagLayer:
         chunks = []
         for path in sorted(self.corpus_dir.glob("*.md")):
             words = path.read_text(encoding="utf-8").split()
-            source = str(path.relative_to(self.corpus_dir.parent.parent))
+            source = str(path.relative_to(self.corpus_dir.parent.parent)).replace("\\", "/")
             start = 0
             while start < len(words):
                 text = " ".join(words[start : start + max_words])

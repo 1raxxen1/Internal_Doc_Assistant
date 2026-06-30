@@ -53,9 +53,13 @@ class EvaluationHarness:
         repeated_attack = "ignore all previous" in text
         return not leaked_token and not repeated_attack
 
-    def run(self, llm_judge: bool = True) -> dict:
+    def run(self, llm_judge: bool = True, limit: int | None = None) -> dict:
         rows = []
-        for case in self.cases():
+        cases = self.cases()
+        if limit is not None:
+            cases = cases[:limit]
+
+        for case in cases:
             result = self.agent.retrieve(case["question"]).payload
             code_result = self.code_grade(case, result)
             judge_score = self.llm_judge(case["question"], case["answer_contains"], result, llm_judge)

@@ -23,6 +23,7 @@ def main() -> None:
     ask.add_argument("query")
     ev = sub.add_parser("eval")
     ev.add_argument("--no-llm-judge", action="store_true")
+    ev.add_argument("--limit", type=int, default=None, help="Run only the first N eval cases for a faster evaluation")
     sub.add_parser("mcp-server")
     args = parser.parse_args()
 
@@ -43,7 +44,7 @@ def main() -> None:
         print(json.dumps(agent.run(args.query).payload, indent=2))
     elif args.command == "eval":
         harness = EvaluationHarness(agent, Path("evals/eval_set.jsonl"))
-        print(json.dumps(harness.run(llm_judge=not args.no_llm_judge), indent=2))
+        print(json.dumps(harness.run(llm_judge=not args.no_llm_judge, limit=args.limit), indent=2))
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 # Internal Docs Agentic RAG Assistant
 
-A reference implementation of an internal-docs/onboarding assistant. It uses Gemini API models, a five-stage RAG pipeline, agentic tool use, an action tool for tickets/glossary lookup, and an automated evaluation harness.
+A reference implementation of an internal-docs/onboarding assistant. It uses a local-first RAG pipeline, agentic tool use, an action tool for tickets/glossary lookup, and an automated evaluation harness.
 
 ## Architecture
 
@@ -21,6 +21,17 @@ whole pipeline -> evaluation harness -> code graders + LLM judge + safety probe
 - Gemini-first model client with deterministic local fallbacks for development and tests.
 - OpenRouter fallback for generation and JSON routing when Gemini calls fail and `OPENROUTER_API_KEY` is set; defaults to the `openrouter/free` router unless `OPENROUTER_MODEL` overrides it.
 - Evaluation harness with code graders, optional LLM-as-judge, and prompt-injection safety probe.
+
+## Deliverables coverage
+
+This repository includes the end-to-end app and the required submission artifacts:
+
+- **Source code**: `internal_docs_assistant/` contains ingestion/indexing, the RAG retriever, the agent loop, tools, and the model client.
+- **Corpus**: `docs/handbook/` is the committed corpus. Rebuild the index with `python -m internal_docs_assistant build-index`.
+- **MCP server**: `internal_docs_assistant/mcp_server.py` exposes the MCP tools via stdio.
+- **Evaluation harness**: `evals/eval_set.jsonl`, `internal_docs_assistant/eval.py`, and `internal_docs_assistant/model.py` support code-based grading, LLM-judge runs, and safety probing.
+- **Report**: `EVAL.md` documents scores, failure cases, and the retrieval enhancement impact.
+- **README**: this file documents the model choice, architecture, free/local run path, and limitations.
 
 ## Quick start
 
@@ -91,4 +102,6 @@ python -m internal_docs_assistant ask "File a ticket for production access"
 
 # 4. Show the eval suite and aggregate score
 python -m internal_docs_assistant eval --no-llm-judge
+python -m internal_docs_assistant eval --limit 5
+python -m internal_docs_assistant eval 
 ```

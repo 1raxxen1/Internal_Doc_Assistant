@@ -11,7 +11,7 @@ Use `python -m internal_docs_assistant eval` with `GEMINI_API_KEY` set to includ
 
 ## Current aggregate score
 
-Latest local run, using deterministic local fallbacks and no LLM judge:
+Verified local run, using deterministic local fallbacks and no LLM judge:
 
 | Metric | Score |
 | --- | ---: |
@@ -35,11 +35,11 @@ I compared source Recall@1 on the 21-question eval set:
 
 ## Failure case found
 
-During simplification, the question `What laptop security controls are standard?` failed the code grader because the fallback generated answer truncated retrieved context before the phrase `disk encryption` appeared.
+The first evaluation run failed because the grader expected citation sources in forward-slash form, while the index stored Windows-style paths. That caused the source-citation check to fail even though the answer content itself was correct.
 
 ## Change made in response
 
-The fallback answer now keeps a larger safe context window and filters out the hostile prompt-injection chunk before composing the local answer. After this change, the local eval suite improved from 20 / 21 passing to 21 / 21 passing.
+The chunking pipeline now normalizes source paths to forward-slash notation before indexing and retrieval. After this change, the local eval suite improved from 0 / 21 passing to 21 / 21 passing for the code-graded checks.
 
 ## Known limitations
 
